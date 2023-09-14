@@ -1,2 +1,9 @@
-# testcontainers-spring-boot-demo
-Testcontainers Spring Boot demo application
+# Testcontainers Spring Boot demo
+
+```shell
+# Run tests
+$ ./mvnw clean verify
+
+# Run application locally
+$ ./mvnw spring-boot:test-run
+```
