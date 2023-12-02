@@ -1,14 +1,27 @@
+buildscript {
+	dependencies {
+		classpath "com.github.tjni.captainhook:captain-hook:0.1.5"
+	}
+}
 plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.2.0'
 	id 'io.spring.dependency-management' version '1.1.4'
+	id 'com.diffplug.spotless' version "6.23.0"
 }
+apply plugin: 'com.github.tjni.captainhook'
 
 group = 'com.sivalabs'
 version = '0.0.1'
 
 java {
-	sourceCompatibility = '21'
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+captainHook {
+	preCommit = './gradlew spotlessApply'
 }
 
 repositories {
@@ -34,5 +47,19 @@ tasks.named('test') {
 		events = ["PASSED", "FAILED", "SKIPPED"]
 		showStandardStreams = true
 		exceptionFormat = "full"
+	}
+}
+spotless {
+	java {
+		importOrder()
+		removeUnusedImports()
+		prettier(['prettier': '3.0.3', 'prettier-plugin-java': '2.3.0'])
+			.config([
+				'parser': 'java',
+				'tabWidth': 2,
+				'printWidth': 80,
+				'plugins': ['prettier-plugin-java']
+			])
+		formatAnnotations()
 	}
 }
