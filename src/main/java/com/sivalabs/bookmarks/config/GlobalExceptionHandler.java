@@ -12,13 +12,14 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @RestControllerAdvice
 class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(BookmarkNotFoundException.class)
-    ErrorResponse handleBookmarkNotFoundException(BookmarkNotFoundException e) {
-        return ErrorResponse.builder(e, HttpStatus.NOT_FOUND, e.getMessage())
-                .title("Bookmark Not found")
-                .type(URI.create("https://api.bookmarks.com/errors/not-found"))
-                .property("errorCategory", "Generic")
-                .property("timestamp", Instant.now())
-                .build();
-    }
+  @ExceptionHandler(BookmarkNotFoundException.class)
+  ErrorResponse handleBookmarkNotFoundException(BookmarkNotFoundException e) {
+    return ErrorResponse
+      .builder(e, HttpStatus.NOT_FOUND, e.getMessage())
+      .title("Bookmark Not found")
+      .type(URI.create("https://api.bookmarks.com/errors/not-found"))
+      .property("errorCategory", "Generic")
+      .property("timestamp", Instant.now())
+      .build();
+  }
 }
