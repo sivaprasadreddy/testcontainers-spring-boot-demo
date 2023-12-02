@@ -21,7 +21,7 @@ java {
 }
 
 captainHook {
-	preCommit = './gradlew spotlessApply'
+	preCommit = './gradlew staging spotlessApply'
 }
 
 repositories {
