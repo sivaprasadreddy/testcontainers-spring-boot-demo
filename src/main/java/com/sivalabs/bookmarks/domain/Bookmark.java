@@ -12,56 +12,56 @@ import java.time.Instant;
 @Table(name = "bookmarks")
 public class Bookmark {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-  @NotEmpty(message = "Title is mandatory")
-  private String title;
+    @NotEmpty(message = "Title is mandatory")
+    private String title;
 
-  @NotEmpty(message = "Url is mandatory")
-  private String url;
+    @NotEmpty(message = "Url is mandatory")
+    private String url;
 
-  private Instant createdAt;
+    private Instant createdAt;
 
-  public Bookmark() {}
+    public Bookmark() {}
 
-  public Bookmark(Long id, String title, String url, Instant createdAt) {
-    this.id = id;
-    this.title = title;
-    this.url = url;
-    this.createdAt = createdAt;
-  }
+    public Bookmark(Long id, String title, String url, Instant createdAt) {
+        this.id = id;
+        this.title = title;
+        this.url = url;
+        this.createdAt = createdAt;
+    }
 
-  public Long getId() {
-    return id;
-  }
+    public Long getId() {
+        return id;
+    }
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-  public String getTitle() {
-    return title;
-  }
+    public String getTitle() {
+        return title;
+    }
 
-  public void setTitle(String title) {
-    this.title = title;
-  }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-  public String getUrl() {
-    return url;
-  }
+    public String getUrl() {
+        return url;
+    }
 
-  public void setUrl(String url) {
-    this.url = url;
-  }
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
-  public Instant getCreatedAt() {
-    return createdAt;
-  }
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
 
-  public void setCreatedAt(Instant createdAt) {
-    this.createdAt = createdAt;
-  }
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
+    }
 }

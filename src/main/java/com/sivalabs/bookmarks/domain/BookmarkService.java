@@ -9,33 +9,33 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class BookmarkService {
 
-  private final BookmarkRepository repo;
+    private final BookmarkRepository repo;
 
-  BookmarkService(BookmarkRepository repo) {
-    this.repo = repo;
-  }
+    BookmarkService(BookmarkRepository repo) {
+        this.repo = repo;
+    }
 
-  public List<Bookmark> getBookmarks() {
-    return repo.findAll();
-  }
+    public List<Bookmark> getBookmarks() {
+        return repo.findAll();
+    }
 
-  public Optional<Bookmark> getBookmarkById(Long id) {
-    return repo.findById(id);
-  }
+    public Optional<Bookmark> getBookmarkById(Long id) {
+        return repo.findById(id);
+    }
 
-  public Bookmark save(Bookmark bookmark) {
-    return repo.save(bookmark);
-  }
+    public Bookmark save(Bookmark bookmark) {
+        return repo.save(bookmark);
+    }
 
-  public List<Bookmark> saveAll(List<Bookmark> bookmarks) {
-    return repo.saveAll(bookmarks);
-  }
+    public List<Bookmark> saveAll(List<Bookmark> bookmarks) {
+        return repo.saveAll(bookmarks);
+    }
 
-  public void deleteById(Long id) {
-    repo.deleteById(id);
-  }
+    public void deleteById(Long id) {
+        repo.deleteById(id);
+    }
 
-  public void deleteAll() {
-    repo.deleteAllInBatch();
-  }
+    public void deleteAll() {
+        repo.deleteAllInBatch();
+    }
 }

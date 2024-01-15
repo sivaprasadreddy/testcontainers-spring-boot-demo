@@ -14,37 +14,32 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/bookmarks")
 class BookmarkController {
 
-  private final BookmarkService service;
+    private final BookmarkService service;
 
-  BookmarkController(BookmarkService service) {
-    this.service = service;
-  }
+    BookmarkController(BookmarkService service) {
+        this.service = service;
+    }
 
-  @GetMapping
-  public List<Bookmark> getBookmarks() {
-    return service.getBookmarks();
-  }
+    @GetMapping
+    public List<Bookmark> getBookmarks() {
+        return service.getBookmarks();
+    }
 
-  @GetMapping("/{id}")
-  public ResponseEntity<Bookmark> getBookmarkById(@PathVariable Long id) {
-    return service
-      .getBookmarkById(id)
-      .map(ResponseEntity::ok)
-      .orElseThrow(() -> new BookmarkNotFoundException(id));
-  }
+    @GetMapping("/{id}")
+    public ResponseEntity<Bookmark> getBookmarkById(@PathVariable Long id) {
+        return service.getBookmarkById(id).map(ResponseEntity::ok).orElseThrow(() -> new BookmarkNotFoundException(id));
+    }
 
-  @PostMapping
-  public ResponseEntity<Bookmark> save(@Valid @RequestBody Bookmark bookmark) {
-    bookmark.setId(null);
-    bookmark.setCreatedAt(Instant.now());
-    return ResponseEntity
-      .status(HttpStatus.CREATED)
-      .body(service.save(bookmark));
-  }
+    @PostMapping
+    public ResponseEntity<Bookmark> save(@Valid @RequestBody Bookmark bookmark) {
+        bookmark.setId(null);
+        bookmark.setCreatedAt(Instant.now());
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.save(bookmark));
+    }
 
-  @DeleteMapping("/{id}")
-  public ResponseEntity<Void> delete(@PathVariable Long id) {
-    service.deleteById(id);
-    return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-  }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        service.deleteById(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
 }
