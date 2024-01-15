@@ -1,6 +1,9 @@
 pipeline {
     agent {
-        docker { image 'sivaprasadreddy/java17-agent' }
+        docker {
+            image 'sivaprasadreddy/java17-agent'
+            args '--network jenkins'
+        }
       }
 
     triggers { pollSCM 'H/2 * * * *' }
