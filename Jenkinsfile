@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        docker { image 'eclipse-temurin:17-jdk' }
+      }
 
     triggers { pollSCM 'H/2 * * * *' }
 
