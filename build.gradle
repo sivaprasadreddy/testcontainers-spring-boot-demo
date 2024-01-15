@@ -43,13 +43,7 @@ spotless {
 	java {
 		importOrder()
 		removeUnusedImports()
-		prettier(['prettier': '3.0.3', 'prettier-plugin-java': '2.3.0'])
-			.config([
-				'parser': 'java',
-				'tabWidth': 2,
-				'printWidth': 80,
-				'plugins': ['prettier-plugin-java']
-			])
+		palantirJavaFormat("2.30.0")
 		formatAnnotations()
 	}
 }
