@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker { image 'jenkinsagent' }
+        docker { image 'sivaprasadreddy/jenkinsagent' }
       }
 
     triggers { pollSCM 'H/2 * * * *' }
