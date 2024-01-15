@@ -9,7 +9,8 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh './mvnw verify'
+                echo "DOCKER_HOST: ${DOCKER_HOST}"
+                sh './mvnw -ntp verify'
             }
         }
     }
