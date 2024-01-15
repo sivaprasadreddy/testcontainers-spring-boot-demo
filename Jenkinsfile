@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker { image 'jenkins/ssh-agent:alpine-jdk17' }
+        docker { image 'jenkinsagent' }
       }
 
     triggers { pollSCM 'H/2 * * * *' }
