@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'sivaprasadreddy/java17-agent'
-            // args '--network host'
+            args '--network host -e DOCKER_HOST=tcp://docker:2376 -e DOCKER_CERT_PATH=/certs/client -e DOCKER_TLS_VERIFY=1'
         }
       }
 
