@@ -14,7 +14,7 @@ pipeline {
             steps {
                 echo "DOCKER_HOST: ${DOCKER_HOST}"
                 sh 'which docker'
-                // sh 'docker info'
+                sh 'docker info'
                 sh './mvnw -ntp verify'
             }
         }
