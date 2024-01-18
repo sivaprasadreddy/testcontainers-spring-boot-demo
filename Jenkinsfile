@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'sivaprasadreddy/java17-agent'
-            args '--network host'
+            // args '--network host'
         }
       }
 
