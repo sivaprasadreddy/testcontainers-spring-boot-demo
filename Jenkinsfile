@@ -14,7 +14,6 @@ pipeline {
         stage('Build') {
             steps {
                 echo "DOCKER_HOST: ${DOCKER_HOST}"
-                echo "USER: ${USER}"
                 sh './mvnw -ntp verify'
             }
         }
