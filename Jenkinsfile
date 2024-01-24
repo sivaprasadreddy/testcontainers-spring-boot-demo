@@ -2,7 +2,7 @@ pipeline {
     agent {
             docker {
                 image 'sivaprasadreddy/java17-agent'
-                args '-u root --privileged --volume jenkins-docker-certs:/certs/client:ro -v /var/run/docker.sock:/var/run/docker.sock'
+                args '-u root -v /var/run/docker.sock:/var/run/docker.sock'
             }
           }
 
