@@ -2,7 +2,8 @@ pipeline {
     agent {
             docker {
                 //image 'sivaprasadreddy/java17-agent'
-                image 'eclipse-temurin:17-alpine'
+                //image 'eclipse-temurin:17-alpine'
+                image 'amazoncorretto:17'
                 args '-u root -v /var/run/docker.sock:/var/run/docker.sock'
             }
           }
