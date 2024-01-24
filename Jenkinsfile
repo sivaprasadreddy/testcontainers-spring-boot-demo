@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'eclipse-temurin:17-jre-jammy'
-            args '-v  /var/run/docker.sock:/var/run/docker.sock'
+            args '-u $(id -u ${USER}):$(id -g ${USER}) -v /var/run/docker.sock:/var/run/docker.sock'
         }
       }
 
